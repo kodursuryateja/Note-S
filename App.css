@@ -1,0 +1,256 @@
+/* Global */
+html, body {
+  height: 100%;
+  margin: 0;
+  background: #000;   /* full screen black background */
+  color: #fff;        /* default text color white */
+  font-family: Arial, sans-serif;
+}
+
+/* Navbar */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #000;   /* black navbar */
+  color: #fff;
+  padding: 0 2rem;
+  height: 64px;
+  border-bottom: 1px solid #333;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+nav ul {
+  display: flex;
+  gap: 2rem;
+}
+
+nav ul li {
+  list-style: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  color: #ccc;
+  transition: color 0.2s ease;
+}
+
+nav ul li:hover {
+  color: #fff;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: #fff;
+}
+
+/* Layout */
+.main-grid {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.form-section,
+.noteSection {
+  flex: 1;
+  background: #111;        /* dark gray panels */
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #333;
+}
+
+/* Headings */
+h1, h2 {
+  font-weight: 600;
+  color: #fff;
+  text-align: left;
+}
+
+.form-section h2 {
+  color: #4da6ff;   /* blue accent */
+}
+
+.noteSection h2 {
+  color: #27ae60;   /* green accent */
+}
+
+/* Form */
+form {
+  background: #1a1a1a;
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 1px solid #333;
+  color: #fff;
+}
+
+form > div {
+  margin-bottom: 1.5rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #ccc;
+  font-size: 14px;
+}
+
+input[type='text'],
+textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #333;
+  border-radius: 8px;
+  font-size: 14px;
+  background: #000;
+  color: #fff;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  font-family: inherit;
+}
+
+input[type='text']:focus,
+textarea:focus {
+  outline: none;
+  border-color: #4da6ff;
+  box-shadow: 0 0 0 3px rgba(77, 166, 255, 0.2);
+}
+
+textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+/* Button */
+button {
+  background: #4da6ff;
+  color: white;
+  font-weight: 500;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+button:hover {
+  background: #1a75d1;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+/* Notes Grid */
+.notes-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.note-card {
+  background: #1a1a1a;     /* dark gray card */
+  color: #fff;             /* white text */
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 1.5rem;
+  flex: 1 1 calc(33.333% - 20px);
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.note-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+}
+
+.note-card .title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: #1a1a1a;   /* force white title */
+}
+
+
+.note-card .desc {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #0f0d0d;   /* lighter gray for description */
+  flex-grow: 1;
+  word-wrap: break-word;
+}
+
+.delete-icon,
+.del {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  cursor: pointer;
+  color: #999;
+  font-size: 20px;
+  transition: color 0.2s ease;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+}
+
+.delete-icon:hover,
+.del:hover {
+  color: #e74c3c;
+  background: rgba(231, 76, 60, 0.2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .main-grid {
+    flex-direction: column;
+  }
+
+  nav {
+    padding: 0 1rem;
+  }
+
+  .logo {
+    font-size: 18px;
+  }
+
+  nav ul {
+    gap: 1.5rem;
+  }
+
+  nav ul li {
+    font-size: 13px;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  .note-card {
+    flex: 1 1 calc(50% - 20px);
+  }
+}
+
+@media (max-width: 480px) {
+  .note-card {
+    flex: 1 1 100%;
+  }
+}
+  
